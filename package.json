@@ -1,5 +1,5 @@
 {
-  "homepage": "http://ichann-san.github.io/arcades",
+  "homepage": "https://ichann-san.github.io/arcades",
   "name": "react_learn",
   "private": true,
   "version": "0.0.0",
@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
