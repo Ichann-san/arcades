@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import Favicon from 'react-favicon';
-import MenuScreen from './components/MenuScreen';
+import MenuScreen from './components/menuScreen';
 import TetrisGame from './components/TetrisGame';
 import tetrisview from './assets/video/tetris.mp4';
 import './style.css';
 
 export default function App() {
-  const [faviconUrl, setFaviconUrl] = useState ("https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_favicon.png");
   const [currentScreen, setCurrentScreen] = useState('menu'); 
   const [selectedGameIndex, setSelectedGameIndex] = useState(0);
   
