@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-const LEFT_ARROW_PATH = "../src/assets/favicon/left_arrow.svg"; 
-const RIGHT_ARROW_PATH = "../src/assets/favicon/right_arrow.svg";
+import leftArrow from '../assets/favicon/left_arrow.svg';
+import rightArrow from '../assets/favicon/right_arrow.svg';
 
 export default function MenuScreen({ games, currentIndex, setIndex, onStart }) {
   const videoRef = useRef(null);
@@ -44,11 +43,7 @@ export default function MenuScreen({ games, currentIndex, setIndex, onStart }) {
 
       <div className="controls-wrapper">
         <button onClick={prevGame} className="nav-button">
-          {LEFT_ARROW_PATH ? (
-            <img src={LEFT_ARROW_PATH} alt="Left" style={{width: 60, height: 60}} />
-          ) : (
-            <ChevronLeft size={60} className="nav-icon" />
-          )}
+          <img src={leftArrow} alt="Left" style={{width: 60, height: 60}} />
         </button>
 
         <div className="game-label-pill">
@@ -56,11 +51,7 @@ export default function MenuScreen({ games, currentIndex, setIndex, onStart }) {
         </div>
 
         <button onClick={nextGame} className="nav-button">
-          {RIGHT_ARROW_PATH ? (
-            <img src={RIGHT_ARROW_PATH} alt="Right" style={{width: 60, height: 60}} />
-          ) : (
-            <ChevronRight size={60} className="nav-icon" />
-          )}
+          <img src={rightArrow} alt="Right" style={{width: 60, height: 60}} />
         </button>
       </div>
 

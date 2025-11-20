@@ -4,6 +4,10 @@ import {
   COLS, ROWS, BLOCK_SIZE, COLORS, 
   createMatrix, createPiece 
 } from '../utils/gameLogic';
+import replay from '../assets/favicon/replay.svg';
+import leftArrow from '../assets/favicon/left_arrow.svg';
+import rightArrow from '../assets/favicon/right_arrow.svg';
+import downArrow from '../assets/favicon/down_arrow.svg';
 
 export default function TetrisGame({ onBack }) {
   const canvasRef = useRef(null);
@@ -173,9 +177,9 @@ export default function TetrisGame({ onBack }) {
     const handleKey = (event) => {
       if (!gameState.current.running) return;
       if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].indexOf(event.code) > -1) event.preventDefault();
-      if (event.key === 'ArrowLeft') playerMove(-1);
-      else if (event.key === 'ArrowRight') playerMove(1);
-      else if (event.key === 'ArrowDown') playerDrop();
+      if (event.key === 'ArrowLeft' || event.key == 'a') playerMove(-1);
+      else if (event.key === 'ArrowRight' || event.key == 'd') playerMove(1);
+      else if (event.key === 'ArrowDown' || event.key == 's') playerDrop();
       else if (event.key === 'q' || event.key === 'ArrowUp') playerRotate(-1);
       else if (event.key === 'w') playerRotate(1);
     };
@@ -229,11 +233,11 @@ export default function TetrisGame({ onBack }) {
 
       <div className="mobile-controls">
         <div />
-        <button className="control-btn" onClick={() => playerRotate(1)}>↻</button>
+        <button className="control-btn" onClick={() => playerRotate(1)}><img src={replay} alt="replay" style={{width: 60, height: 60}} /></button>
         <div />
-        <button className="control-btn" onClick={() => playerMove(-1)}>←</button>
-        <button className="control-btn" onClick={() => playerDrop()}>↓</button>
-        <button className="control-btn" onClick={() => playerMove(1)}>→</button>
+        <button className="control-btn" onClick={() => playerMove(-1)}><img src={leftArrow} alt="left" style={{width: 60, height: 60}} /></button>
+        <button className="control-btn" onClick={() => playerDrop()}><img src={downArrow} alt="down" style={{width: 60, height: 60}} /></button>
+        <button className="control-btn" onClick={() => playerMove(1)}><img src={rightArrow} alt="right" style={{width: 60, height: 60}} /></button>
       </div>
     </div>
   );
